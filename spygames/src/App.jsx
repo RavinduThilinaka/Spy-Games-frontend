@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Co
 import Navbar from './components/NavBar/Navbar';
 import Hero from './components/Hero/Hero';
 import Brand from './components/Brand/Brand';
+import Wrapper from './components/Wrapper/Wrapper';
 
 
 
@@ -21,6 +22,7 @@ export default function App() {
             <Navbar />
             <Hero />
             <Brand/>
+            <Wrapper/>
           </div>
         }
       />
