@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <header className={`fixed w-full top-0 left-0 z-50 transition-all duration-500 ${scrolled ? 'shadow-xl' : 'shadow-md'}`}>
-      {/* Top Announcement Bar */}
+    
       <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-2 hidden md:block overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
@@ -59,10 +59,10 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Main Navigation */}
+  
       <div className={`bg-gradient-to-r from-gray-800 to-gray-700 transition-all duration-500 ${scrolled ? 'py-2' : 'py-4'}`}>
         <div className="container mx-auto px-4 flex justify-between items-center">
-          {/* Logo */}
+     
           <a 
             href="#" 
             className="text-3xl md:text-4xl font-extrabold text-white font-oxanium tracking-tighter relative group"
@@ -73,7 +73,7 @@ const Navbar = () => {
             <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
           </a>
 
-          {/* Desktop Navigation */}
+       
           <nav className="hidden md:flex space-x-8">
             {['Home', 'Live', 'Features', 'Shop', 'Blog', 'Contact'].map((item, index) => (
               <a 
@@ -93,7 +93,7 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* Action Buttons */}
+         
           <div className="flex items-center space-x-4 md:space-x-6">
             <button 
               className="text-white hover:text-yellow-400 transition-all duration-300 p-2 group relative"
@@ -131,7 +131,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+       
         <div className={`md:hidden bg-gradient-to-b from-gray-700 to-gray-600 overflow-hidden transition-all duration-500 ease-in-out ${isNavOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
           <div className="container mx-auto px-4 py-3">
             {['Home', 'Live', 'Features', 'Shop', 'Blog', 'Contact'].map((item, index) => (
@@ -167,7 +167,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Search Overlay */}
+     
       {isSearchOpen && (
         <div className="fixed inset-0 bg-gradient-to-br from-gray-900 to-black bg-opacity-95 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300">
           <div className="relative w-full max-w-2xl px-4 animate-fadeIn">
@@ -187,7 +187,7 @@ const Navbar = () => {
         </div>
       )}
 
-      {/* Animation Styles */}
+   
       <style jsx global>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
