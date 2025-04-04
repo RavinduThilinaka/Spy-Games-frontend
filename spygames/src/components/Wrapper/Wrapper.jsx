@@ -5,6 +5,9 @@ import { FaTrophy, FaGamepad } from 'react-icons/fa';
 import Images from '../../assets/Images/back2.jpg';
 import Images2 from '../../assets/Images/bgLogo7.png';
 import Images3 from '../../assets/Images/bgLogo8.png';
+import Images4 from '../../assets/Images/battlefield2.jpg';
+import Images5 from '../../assets/Images/battlefield.jpg';
+import Images6 from '../../assets/Images/Racing3.jpg';
 import Banner from '../../assets/Images/banner.jpg';
 
 const Wrapper = () => {
@@ -23,7 +26,7 @@ const Wrapper = () => {
       subtitle: "IT",
       genre: "Adventure",
       price: "$55.00",
-      image: Images
+      image: Images4
     },
     {
       id: 3,
@@ -31,7 +34,7 @@ const Wrapper = () => {
       subtitle: "Daily",
       genre: "Action",
       price: "$45.00",
-      image: Images
+      image: Images5
     },
     {
       id: 4,
@@ -39,7 +42,7 @@ const Wrapper = () => {
       subtitle: "Daily",
       genre: "Racing",
       price: "Free",
-      image: Images
+      image: Images6
     }
   ];
 
