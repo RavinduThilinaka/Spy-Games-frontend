@@ -10,7 +10,7 @@ function NewsLetter() {
     e.preventDefault();
     if (email) {
       setIsSubscribed(true);
-      // You would typically send the email to your backend here
+     
       console.log('Subscribed with:', email);
       setEmail('');
       setTimeout(() => setIsSubscribed(false), 3000);

@@ -9,7 +9,7 @@ function Hero() {
   const [currentBg, setCurrentBg] = useState(0);
   const backgrounds = [Adventure2, Back4, Dynlight2, Battlefield];
 
-  // Auto-rotate backgrounds every 5 seconds
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBg((prev) => (prev + 1) % backgrounds.length);
@@ -23,7 +23,7 @@ function Hero() {
       id="home" 
       aria-label="home"
     >
-      {/* Background images with transition */}
+     
       <div className="absolute inset-0 w-full overflow-hidden">
         {backgrounds.map((bg, index) => (
           <motion.div
@@ -41,7 +41,7 @@ function Hero() {
         <div className="absolute inset-0 w-full bg-black bg-opacity-60"></div>
       </div>
 
-      {/* Animated floating elements */}
+      
       <div className="absolute inset-0 w-full overflow-hidden">
         {[...Array(20)].map((_, i) => {
           const size = Math.random() * 20 + 10;
@@ -74,7 +74,7 @@ function Hero() {
         })}
       </div>
 
-      {/* Bright particle effect */}
+   
       <div className="absolute inset-0 w-full overflow-hidden">
         {[...Array(40)].map((_, i) => (
           <motion.div
@@ -102,7 +102,7 @@ function Hero() {
       </div>
 
       <div className="w-full max-w-7xl mx-auto px-4 py-20 flex flex-col lg:flex-row items-center justify-between relative z-10">
-        {/* Left Content */}
+      
         <motion.div 
           className="hero-content lg:w-1/2 text-center lg:text-left mb-16 lg:mb-0"
           initial={{ opacity: 0, x: -50 }}
@@ -174,9 +174,9 @@ function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Content - Enhanced with gaming features */}
+     
         <div className="relative lg:w-1/2 max-w-2xl mx-auto lg:mx-0">
-          {/* Gaming Platform Features */}
+        
           <motion.div 
             className="bg-black bg-opacity-40 backdrop-blur-sm rounded-xl p-6 lg:p-8 border border-yellow-400/30 shadow-lg"
             initial={{ opacity: 0, y: 50 }}
@@ -214,7 +214,7 @@ function Hero() {
               ))}
             </ul>
             
-            {/* Live Tournament Status */}
+           
             <motion.div 
               className="mt-6 pt-4 border-t border-yellow-400/20"
               initial={{ opacity: 0 }}
@@ -238,7 +238,7 @@ function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Enhanced Floating Devices */}
+        
           <motion.div 
             className="absolute -bottom-10 -left-10 w-32 h-32 z-20"
             animate={{
@@ -288,7 +288,7 @@ function Hero() {
             />
           </motion.div>
 
-          {/* Floating Player Cards */}
+       
           <motion.div 
             className="absolute -bottom-5 right-10 bg-black bg-opacity-60 backdrop-blur-sm p-3 rounded-lg border border-yellow-400/30 shadow-lg w-32"
             initial={{ opacity: 0, y: 20 }}
@@ -306,7 +306,7 @@ function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+     
       <motion.div 
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer z-20"
         initial={{ opacity: 0, y: 20 }}

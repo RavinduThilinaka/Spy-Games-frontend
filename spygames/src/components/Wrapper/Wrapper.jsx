@@ -76,7 +76,7 @@ const Wrapper = () => {
 
   return (
     <div className="section-wrapper bg-gradient-to-b from-gray-900 to-gray-800">
-      {/* Latest Games Section */}
+  
       <section className="py-20 px-4" aria-label="latest game">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
@@ -131,7 +131,7 @@ const Wrapper = () => {
         </div>
       </section>
 
-      {/* Enhanced Live Match Section with Centered Icon */}
+    
       <section className="py-16 px-4" id="live" aria-label="live-match">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
@@ -144,7 +144,7 @@ const Wrapper = () => {
             </p>
           </div>
 
-          {/* Featured Live Stream with Centered Play Icon */}
+         
           <motion.div 
             className="relative rounded-2xl overflow-hidden shadow-2xl mb-16 max-w-6xl mx-auto border-2 border-yellow-500/20"
             whileHover={{ scale: 1.01 }}
@@ -161,7 +161,7 @@ const Wrapper = () => {
                 loading="lazy"
               />
               
-              {/* Big Centered Play Icon */}
+             
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
                   className="relative group"
@@ -175,7 +175,7 @@ const Wrapper = () => {
                 </motion.div>
               </div>
 
-              {/* Match Info at Bottom */}
+              
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
                 <div className="flex justify-between items-end">
                   <div>
@@ -201,7 +201,7 @@ const Wrapper = () => {
             </div>
           </motion.div>
 
-          {/* Upcoming Matches Section (Preserved) */}
+        
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-white">
               Upcoming <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">Matches</span>
@@ -221,7 +221,7 @@ const Wrapper = () => {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center justify-between">
-                  {/* Team 1 */}
+                 
                   <div className="flex flex-col items-center">
                     <div className="w-20 h-20 relative mb-3">
                       <img 
@@ -234,7 +234,7 @@ const Wrapper = () => {
                     <h4 className="text-lg font-bold text-white">{match.team1}</h4>
                   </div>
 
-                  {/* Match Info */}
+                
                   <div className="flex flex-col items-center px-4">
                     <div className="text-center">
                       <time dateTime={match.time} className="text-xl font-bold text-white">
@@ -250,7 +250,7 @@ const Wrapper = () => {
                     </div>
                   </div>
 
-                  {/* Team 2 */}
+                
                   <div className="flex flex-col items-center">
                     <div className="w-20 h-20 relative mb-3">
                       <img 
@@ -280,7 +280,7 @@ const Wrapper = () => {
             ))}
           </div>
 
-          {/* View All Button */}
+         
           <div className="text-center mt-4">
             <button className="border-2 border-yellow-500 text-yellow-500 font-bold py-3 px-8 rounded-lg hover:bg-yellow-500 hover:text-black transition-all duration-300">
               View All Upcoming Matches
@@ -289,7 +289,7 @@ const Wrapper = () => {
         </div>
       </section>
 
-      {/* Custom styles */}
+     
       <style jsx>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;

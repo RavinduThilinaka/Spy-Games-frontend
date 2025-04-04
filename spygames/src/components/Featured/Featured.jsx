@@ -73,7 +73,7 @@ const Featured = () => {
     }
   };
 
-  // Calculate scrollbar width based on number of items
+  
   const scrollbarWidth = `${(100 / featuredGames.length)}%`;
 
   return (
@@ -89,13 +89,13 @@ const Featured = () => {
         </motion.h2>
 
         <div className="relative">
-          {/* Custom scrollbar track - hidden by default */}
+       
           <div className="absolute bottom-0 left-0 right-0 h-2 bg-gray-800 rounded-full overflow-hidden hidden md:block">
             <motion.div 
               className="absolute top-0 left-0 h-full bg-yellow-600 rounded-full" 
               style={{ width: scrollbarWidth }}
               animate={{
-                x: ['0%', '300%'], // Matches 4 items (0%, 100%, 200%, 300%)
+                x: ['0%', '300%'], 
               }}
               transition={{
                 duration: 10,
@@ -183,7 +183,7 @@ const Featured = () => {
         </div>
       </div>
 
-      {/* Custom scrollbar styles */}
+  
       <style jsx global>{`
         .snap-x {
           scroll-snap-type: x mandatory;
