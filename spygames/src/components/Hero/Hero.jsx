@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import Adventure2 from '../../assets/images/Adventure2.jpg';
-import Back4 from '../../assets/images/back4.jpg';
+import Adventure2 from '../../assets/Images/cyberpunk.jpg';
+import Back4 from '../../assets/Images/back4.jpg';
 
 function Hero() {
   const [currentBg, setCurrentBg] = useState(0);
@@ -17,16 +17,16 @@ function Hero() {
 
   return (
     <section 
-      className="relative overflow-hidden min-h-screen flex items-center justify-center"
+      className="relative w-full overflow-hidden min-h-screen flex items-center justify-center"
       id="home" 
       aria-label="home"
     >
       {/* Background images with transition */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 w-full overflow-hidden">
         {backgrounds.map((bg, index) => (
           <motion.div
             key={index}
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 w-full bg-cover bg-center"
             style={{
               backgroundImage: `url(${bg})`,
               opacity: currentBg === index ? 1 : 0,
@@ -36,11 +36,11 @@ function Hero() {
             transition={{ duration: 1 }}
           />
         ))}
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div className="absolute inset-0 w-full bg-black bg-opacity-60"></div>
       </div>
 
-      {/* Animated floating elements - brighter and more visible */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Animated floating elements */}
+      <div className="absolute inset-0 w-full overflow-hidden">
         {[...Array(20)].map((_, i) => {
           const size = Math.random() * 20 + 10;
           const isCircle = Math.random() > 0.5;
@@ -73,7 +73,7 @@ function Hero() {
       </div>
 
       {/* Bright particle effect */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 w-full overflow-hidden">
         {[...Array(40)].map((_, i) => (
           <motion.div
             key={`particle-${i}`}
@@ -99,8 +99,8 @@ function Hero() {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 py-20 flex flex-col lg:flex-row items-center justify-between relative z-10">
-        {/* Hero Content */}
+      <div className="w-full max-w-7xl mx-auto px-4 py-20 flex flex-col lg:flex-row items-center justify-between relative z-10">
+        {/* Left Content */}
         <motion.div 
           className="hero-content lg:w-1/2 text-center lg:text-left mb-16 lg:mb-0"
           initial={{ opacity: 0, x: -50 }}
@@ -113,7 +113,7 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            <span className="inline-block mr-2">🎮</span> World Gaming
+            <span className="inline-block mr-2 bg-co">🎮</span> World Gaming
           </motion.p>
           
           <motion.h1 
@@ -170,52 +170,103 @@ function Hero() {
               <span className="absolute inset-0 bg-yellow-400 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
             </motion.button>
           </div>
-
-          {/* Stats */}
-          <motion.div 
-            className="mt-12 flex flex-wrap justify-center lg:justify-start gap-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-          >
-            <div className="text-center">
-              <div className="text-3xl font-bold text-yellow-400">50K+</div>
-              <div className="text-gray-300 text-sm">Active Players</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-yellow-400">120+</div>
-              <div className="text-gray-300 text-sm">Tournaments</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-yellow-400">1M+</div>
-              <div className="text-gray-300 text-sm">Matches Played</div>
-            </div>
-          </motion.div>
         </motion.div>
 
-        {/* Floating game characters - now more visible */}
-        <div className="relative lg:w-1/2 max-w-2xl mx-auto lg:mx-0 hidden lg:block">
+        {/* Right Content - Enhanced with gaming features */}
+        <div className="relative lg:w-1/2 max-w-2xl mx-auto lg:mx-0">
+          {/* Gaming Platform Features */}
           <motion.div 
-            className="absolute -bottom-10 -left-10 w-24 h-24"
+            className="bg-black bg-opacity-40 backdrop-blur-sm rounded-xl p-6 lg:p-8 border border-yellow-400/30 shadow-lg"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+          >
+            <h3 className="text-2xl font-bold text-yellow-400 mb-4 flex items-center">
+              <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Premium Features
+            </h3>
+            
+            <ul className="space-y-3">
+              {[
+                "4K Ultra HD Streaming",
+                "Exclusive Tournaments",
+                "Customizable Profiles",
+                "Real-time Stats Tracking",
+                "Cross-platform Play",
+                "Priority Support"
+              ].map((feature, index) => (
+                <motion.li 
+                  key={index}
+                  className="flex items-center text-gray-200"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
+                >
+                  <svg className="w-5 h-5 text-yellow-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  {feature}
+                </motion.li>
+              ))}
+            </ul>
+            
+            {/* Live Tournament Status */}
+            <motion.div 
+              className="mt-6 pt-4 border-t border-yellow-400/20"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.6, duration: 0.8 }}
+            >
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-gray-300">Live Tournament:</span>
+                <span className="text-yellow-400 font-bold">Season 5 Finals</span>
+              </div>
+              <div className="w-full bg-gray-700 rounded-full h-2.5">
+                <div 
+                  className="bg-yellow-500 h-2.5 rounded-full animate-pulse" 
+                  style={{ width: '75%' }}
+                ></div>
+              </div>
+              <div className="flex justify-between text-xs text-gray-400 mt-1">
+                <span>12,345 viewers</span>
+                <span>3:45 remaining</span>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Enhanced Floating Devices */}
+          <motion.div 
+            className="absolute -bottom-10 -left-10 w-32 h-32 z-20"
             animate={{
               y: [0, -15, 0],
-              rotate: [0, 5, -5, 0]
+              rotate: [0, 5, -5, 0],
+              filter: [
+                "drop-shadow(0 0 3px #ff9900) drop-shadow(0 0 10px #ff990066)",
+                "drop-shadow(0 0 3px #ffff00) drop-shadow(0 0 10px #ffff0066)",
+                
+              ]
             }}
             transition={{
-              duration: 8,
+              duration: 12,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "linear"
             }}
           >
             <img 
               src="https://cdn-icons-png.flaticon.com/512/686/686589.png" 
-              alt="game character" 
-              className="w-full h-full object-contain drop-shadow-lg"
+              alt="game controller" 
+              className="w-full h-full object-contain"
+              style={{
+                filter: "brightness(0) saturate(100%)",
+                mixBlendMode: "lighten"
+              }}
             />
           </motion.div>
 
           <motion.div 
-            className="absolute -top-10 -right-10 w-20 h-20"
+            className="absolute -top-10 -right-10 w-28 h-28 z-20"
             animate={{
               y: [0, -20, 0],
               rotate: [0, 10, -10, 0]
@@ -228,17 +279,34 @@ function Hero() {
             }}
           >
             <img 
-              src="https://cdn-icons-png.flaticon.com/512/686/686596.png" 
-              alt="game character" 
+              src="https://cdn-icons-png.flaticon.com/512/2965/2965300.png" 
+              alt="gaming laptop" 
               className="w-full h-full object-contain drop-shadow-lg"
+              style={{ filter: 'hue-rotate(10deg) brightness(1.3) contrast(1.2) saturate(1.4)' }}
             />
+          </motion.div>
+
+          {/* Floating Player Cards */}
+          <motion.div 
+            className="absolute -bottom-5 right-10 bg-black bg-opacity-60 backdrop-blur-sm p-3 rounded-lg border border-yellow-400/30 shadow-lg w-32"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.8, duration: 0.6 }}
+          >
+            <div className="flex items-center mb-2">
+              <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center mr-2">
+                <span className="text-xs font-bold">#1</span>
+              </div>
+              <span className="text-sm font-medium text-white">ProGamer92</span>
+            </div>
+            <div className="text-xs text-gray-300">Winning streak: 12</div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator - more visible */}
+      {/* Scroll indicator */}
       <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer z-20"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2, duration: 0.6 }}

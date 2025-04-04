@@ -2,6 +2,8 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Correct import for BrowserRouter
 import Navbar from './components/NavBar/Navbar';
 import Hero from './components/Hero/Hero';
+import Brand from './components/Brand/Brand';
+import Wrapper from './components/Wrapper/Wrapper';
 
 
 
@@ -19,6 +21,8 @@ export default function App() {
             {/* Main page components */}
             <Navbar />
             <Hero />
+            <Brand/>
+            <Wrapper/>
           </div>
         }
       />
