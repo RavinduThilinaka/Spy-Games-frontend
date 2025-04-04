@@ -85,14 +85,14 @@ const Featured = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          All Released <span className="text-indigo-400">Games</span>
+          All Released <span className="text-yellow-400">Games</span>
         </motion.h2>
 
         <div className="relative">
           {/* Custom scrollbar track - hidden by default */}
           <div className="absolute bottom-0 left-0 right-0 h-2 bg-gray-800 rounded-full overflow-hidden hidden md:block">
             <motion.div 
-              className="absolute top-0 left-0 h-full bg-indigo-600 rounded-full" 
+              className="absolute top-0 left-0 h-full bg-yellow-600 rounded-full" 
               style={{ width: scrollbarWidth }}
               animate={{
                 x: ['0%', '300%'], // Matches 4 items (0%, 100%, 200%, 300%)
@@ -140,8 +140,8 @@ const Featured = () => {
 
                   <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
                     <h3 className="text-2xl font-bold">
-                      <a href="#" className="hover:text-indigo-400 transition-colors">
-                        {game.title} <span className="text-indigo-400">{game.spanText}</span>
+                      <a href="#" className="hover:text-yellow-400 transition-colors">
+                        {game.title} <span className="text-yellow-400">{game.spanText}</span>
                       </a>
                     </h3>
                     <div className="flex items-center mt-2 text-sm text-gray-300">
@@ -162,8 +162,8 @@ const Featured = () => {
                       />
                     </div>
                     <h3 className="text-2xl font-bold text-center">
-                      <a href="#" className="hover:text-indigo-400 transition-colors">
-                        {game.title} <span className="text-indigo-400">{game.spanText}</span>
+                      <a href="#" className="hover:text-yellow-400 transition-colors">
+                        {game.title} <span className="text-yellow-400">{game.spanText}</span>
                       </a>
                     </h3>
                     <div className="flex items-center mt-2 text-sm text-gray-300">
@@ -172,7 +172,7 @@ const Featured = () => {
                       </svg>
                       <span>{game.platforms}</span>
                     </div>
-                    <button className="mt-6 px-6 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-full font-medium transition-colors">
+                    <button className="mt-6 px-6 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-full font-medium transition-colors">
                       View Details
                     </button>
                   </div>

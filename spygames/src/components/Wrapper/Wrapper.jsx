@@ -7,7 +7,8 @@ import Images2 from '../../assets/Images/bgLogo7.png';
 import Images3 from '../../assets/Images/bgLogo8.png';
 import Images4 from '../../assets/Images/battlefield2.jpg';
 import Images5 from '../../assets/Images/battlefield.jpg';
-import Images6 from '../../assets/Images/Racing3.jpg';
+import Images6 from '../../assets/Images/bgLogo5.png';
+import Images7 from '../../assets/Images/bgLogo10.png';
 import Banner from '../../assets/Images/banner.jpg';
 
 const Wrapper = () => {
@@ -42,7 +43,7 @@ const Wrapper = () => {
       subtitle: "Daily",
       genre: "Racing",
       price: "Free",
-      image: Images6
+      image: Images
     }
   ];
 
@@ -68,8 +69,8 @@ const Wrapper = () => {
       format: "Best of 5",
       prize: "$25,000",
       game: "CS:GO",
-      team1Logo: Images2,
-      team2Logo: Images3
+      team1Logo: Images6,
+      team2Logo: Images7
     }
   ];
 

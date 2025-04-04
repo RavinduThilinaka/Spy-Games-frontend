@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Adventure2 from '../../assets/Images/cyberpunk.jpg';
 import Back4 from '../../assets/Images/back4.jpg';
+import Dynlight2 from '../../assets/Images/dyinglight2.jpg';
+import Battlefield from '../../assets/Images/battlefield2.jpg';
 
 function Hero() {
   const [currentBg, setCurrentBg] = useState(0);
-  const backgrounds = [Adventure2, Back4];
+  const backgrounds = [Adventure2, Back4, Dynlight2, Battlefield];
 
   // Auto-rotate backgrounds every 5 seconds
   useEffect(() => {
@@ -117,7 +119,7 @@ function Hero() {
           </motion.p>
           
           <motion.h1 
-            className="hero-title text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+            className="hero-title text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
