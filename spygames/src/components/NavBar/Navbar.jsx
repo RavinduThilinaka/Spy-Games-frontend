@@ -59,7 +59,6 @@ const Navbar = () => {
         </div>
       </div>
 
-  
       <div className={`bg-gradient-to-r from-gray-800 to-gray-700 transition-all duration-500 ${scrolled ? 'py-2' : 'py-4'}`}>
         <div className="container mx-auto px-4 flex justify-between items-center">
      
@@ -73,7 +72,6 @@ const Navbar = () => {
             <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
           </a>
 
-       
           <nav className="hidden md:flex space-x-8">
             {['Home', 'Live', 'Features', 'Shop', 'Blog', 'Contact'].map((item, index) => (
               <a 
@@ -87,13 +85,14 @@ const Navbar = () => {
                     <span className="ml-1 px-1.5 py-0.5 text-xs bg-red-500 rounded-full text-white animate-pulse">HOT</span>
                   )}
                 </span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-300 transition-all duration-300 group-hover:w-full"></span>
-                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-white opacity-10"></span>
+                {/* Blue underline (always visible) */}
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-500 bg-opacity-20"></span>
+                {/* Yellow hover effect (fills the blue) */}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-300 transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </nav>
 
-         
           <div className="flex items-center space-x-4 md:space-x-6">
             <button 
               className="text-white hover:text-yellow-400 transition-all duration-300 p-2 group relative"
@@ -131,20 +130,22 @@ const Navbar = () => {
           </div>
         </div>
 
-       
         <div className={`md:hidden bg-gradient-to-b from-gray-700 to-gray-600 overflow-hidden transition-all duration-500 ease-in-out ${isNavOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
           <div className="container mx-auto px-4 py-3">
             {['Home', 'Live', 'Features', 'Shop', 'Blog', 'Contact'].map((item, index) => (
               <a 
                 key={index} 
                 href={`#${item.toLowerCase()}`} 
-                className="block py-3 px-4 text-white hover:bg-white bg-opacity-5 transition-all duration-300 rounded-lg group"
+                className="block py-3 px-4 text-white hover:bg-white bg-opacity-5 transition-all duration-300 rounded-lg group relative"
                 onClick={() => setIsNavOpen(false)}
               >
                 <div className="flex items-center">
                   <span className="relative">
                     {item}
-                    <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+                    {/* Blue underline (always visible) */}
+                    <span className="absolute left-0 bottom-0 w-full h-0.5 bg-blue-500 bg-opacity-20"></span>
+                    {/* Yellow hover effect (fills the blue) */}
+                    <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-300 transition-all duration-300 group-hover:w-full"></span>
                   </span>
                   {item === 'Shop' && (
                     <span className="ml-2 px-2 py-0.5 text-xs bg-red-500 rounded-full text-white animate-pulse">HOT</span>
@@ -167,7 +168,6 @@ const Navbar = () => {
         </div>
       </div>
 
-     
       {isSearchOpen && (
         <div className="fixed inset-0 bg-gradient-to-br from-gray-900 to-black bg-opacity-95 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300">
           <div className="relative w-full max-w-2xl px-4 animate-fadeIn">
@@ -187,7 +187,6 @@ const Navbar = () => {
         </div>
       )}
 
-   
       <style jsx global>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
