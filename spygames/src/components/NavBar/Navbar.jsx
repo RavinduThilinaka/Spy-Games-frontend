@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { IonIcon } from "@ionic/react";
 import { logoFacebook, logoTwitter, logoPinterest, logoLinkedin, cart, searchOutline, menuOutline, closeOutline } from "ionicons/icons";
 
@@ -7,6 +8,8 @@ const Navbar = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isHoveringCart, setIsHoveringCart] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +23,38 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Function to handle smooth scrolling to sections
+  const scrollToSection = (sectionId) => {
+    if (location.pathname !== '/') {
+      // If not on home page, navigate to home first
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+    
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop - 100; // Adjust for header height
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+    setIsNavOpen(false);
+  };
+
+  // Function to navigate with animation
+  const navigateWithAnimation = (path) => {
+    // Add a fade-out animation to the entire page
+    document.querySelector('.page-content').classList.add('fade-out');
+    
+    // Wait for animation to complete before navigating
+    setTimeout(() => {
+      navigate(path);
+    }, 500);
+    
+    setIsNavOpen(false);
+  };
 
   return (
     <header className={`fixed w-full top-0 left-0 z-50 transition-all duration-500 ${scrolled ? 'shadow-xl' : 'shadow-md'}`}>
@@ -62,26 +97,31 @@ const Navbar = () => {
       <div className={`bg-gradient-to-r from-gray-800 to-gray-700 transition-all duration-500 ${scrolled ? 'py-2' : 'py-4'}`}>
         <div className="container mx-auto px-4 flex justify-between items-center">
      
-          <a 
-            href="#" 
+          <Link 
+            to="/" 
             className="text-3xl md:text-4xl font-extrabold text-white font-oxanium tracking-tighter relative group"
           >
             <span className="relative z-10">
               Spy<span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-300">Games</span>
             </span>
             <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-          </a>
+          </Link>
 
           <nav className="hidden md:flex space-x-8">
-            {['Home', 'Live', 'Features', 'Shop', 'Blog', 'Contact'].map((item, index) => (
-              <a 
+            {[
+              {name: 'Home', id: 'home'},
+              {name: 'Live', id: 'live'}, 
+              {name: 'Shop', id: 'shop'}, 
+              {name: 'Blog', id: 'blog'}
+            ].map((item, index) => (
+              <button 
                 key={index} 
-                href={`#${item.toLowerCase()}`} 
+                onClick={() => scrollToSection(item.id)}
                 className="relative text-white hover:text-yellow-400 transition-all duration-300 group"
               >
                 <span className="relative z-10 flex items-center">
-                  {item}
-                  {item === 'Shop' && (
+                  {item.name}
+                  {item.name === 'Shop' && (
                     <span className="ml-1 px-1.5 py-0.5 text-xs bg-red-500 rounded-full text-white animate-pulse">HOT</span>
                   )}
                 </span>
@@ -89,8 +129,27 @@ const Navbar = () => {
                 <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-500 bg-opacity-20"></span>
                 {/* Yellow hover effect (fills the blue) */}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-300 transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              </button>
             ))}
+            
+            {/* Signup and Login buttons */}
+            <button 
+              onClick={() => navigateWithAnimation('/signup')}
+              className="relative text-white hover:text-yellow-400 transition-all duration-300 group"
+            >
+              <span className="relative z-10">Signup</span>
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-500 bg-opacity-20"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-300 transition-all duration-300 group-hover:w-full"></span>
+            </button>
+            
+            <button 
+              onClick={() => navigateWithAnimation('/login')}
+              className="relative text-white hover:text-yellow-400 transition-all duration-300 group"
+            >
+              <span className="relative z-10">Login</span>
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-500 bg-opacity-20"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-300 transition-all duration-300 group-hover:w-full"></span>
+            </button>
           </nav>
 
           <div className="flex items-center space-x-4 md:space-x-6">
@@ -132,27 +191,55 @@ const Navbar = () => {
 
         <div className={`md:hidden bg-gradient-to-b from-gray-700 to-gray-600 overflow-hidden transition-all duration-500 ease-in-out ${isNavOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
           <div className="container mx-auto px-4 py-3">
-            {['Home', 'Live', 'Features', 'Shop', 'Blog', 'Contact'].map((item, index) => (
-              <a 
+            {[
+              {name: 'Home', id: 'home'},
+              {name: 'Live', id: 'live'}, 
+              {name: 'Shop', id: 'shop'}, 
+              {name: 'Blog', id: 'blog'}
+            ].map((item, index) => (
+              <button 
                 key={index} 
-                href={`#${item.toLowerCase()}`} 
-                className="block py-3 px-4 text-white hover:bg-white bg-opacity-5 transition-all duration-300 rounded-lg group relative"
-                onClick={() => setIsNavOpen(false)}
+                onClick={() => scrollToSection(item.id)}
+                className="block w-full text-left py-3 px-4 text-white hover:bg-white bg-opacity-5 transition-all duration-300 rounded-lg group relative"
               >
                 <div className="flex items-center">
                   <span className="relative">
-                    {item}
+                    {item.name}
                     {/* Blue underline (always visible) */}
                     <span className="absolute left-0 bottom-0 w-full h-0.5 bg-blue-500 bg-opacity-20"></span>
                     {/* Yellow hover effect (fills the blue) */}
                     <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-300 transition-all duration-300 group-hover:w-full"></span>
                   </span>
-                  {item === 'Shop' && (
+                  {item.name === 'Shop' && (
                     <span className="ml-2 px-2 py-0.5 text-xs bg-red-500 rounded-full text-white animate-pulse">HOT</span>
                   )}
                 </div>
-              </a>
+              </button>
             ))}
+            
+            {/* Mobile Signup and Login buttons */}
+            <button 
+              onClick={() => navigateWithAnimation('/signup')}
+              className="block w-full text-left py-3 px-4 text-white hover:bg-white bg-opacity-5 transition-all duration-300 rounded-lg group relative"
+            >
+              <span className="relative">
+                Signup
+                <span className="absolute left-0 bottom-0 w-full h-0.5 bg-blue-500 bg-opacity-20"></span>
+                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-300 transition-all duration-300 group-hover:w-full"></span>
+              </span>
+            </button>
+            
+            <button 
+              onClick={() => navigateWithAnimation('/login')}
+              className="block w-full text-left py-3 px-4 text-white hover:bg-white bg-opacity-5 transition-all duration-300 rounded-lg group relative"
+            >
+              <span className="relative">
+                Login
+                <span className="absolute left-0 bottom-0 w-full h-0.5 bg-blue-500 bg-opacity-20"></span>
+                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-300 transition-all duration-300 group-hover:w-full"></span>
+              </span>
+            </button>
+            
             <div className="mt-4 pt-4 border-t border-white border-opacity-10 flex justify-center space-x-6">
               {[logoFacebook, logoTwitter, logoPinterest, logoLinkedin].map((icon, index) => (
                 <a 
@@ -208,6 +295,16 @@ const Navbar = () => {
         @keyframes bounce {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-5px); }
+        }
+        .fade-out {
+          animation: fadeOut 0.5s ease-out forwards;
+        }
+        @keyframes fadeOut {
+          from { opacity: 1; }
+          to { opacity: 0; }
+        }
+        .page-content {
+          animation: fadeIn 0.5s ease-out forwards;
         }
       `}</style>
     </header>
