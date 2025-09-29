@@ -53,7 +53,7 @@ function Layout() {
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div  basename="/Spy-Games-frontend">
         <Layout />
       </div>
     </Router>
