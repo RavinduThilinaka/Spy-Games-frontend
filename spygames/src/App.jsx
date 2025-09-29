@@ -1,5 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+
+// Import components
 import Navbar from './components/NavBar/Navbar';
 import Hero from './components/Hero/Hero';
 import Brand from './components/Brand/Brand';
@@ -12,37 +14,40 @@ import Footer from './components/Footer/Footer';
 import Signup from './components/SignUp/Signup';
 import Login from './components/Login/Login';
 
-// Component to conditionally render the Navbar
+// Layout component
 function Layout() {
   const location = useLocation();
-  const hideNavbar = location.pathname === '/signup' || location.pathname === '/login';
-  
+
+  // Remove base path for GitHub Pages
+  const path = location.pathname.replace('/Spy-Games-frontend', '');
+  const hideNavbar = path === '/signup' || path === '/login';
+
   return (
     <>
       {!hideNavbar && <Navbar />}
       <div className="page-content">
         <Routes>
-          {/* Home Route */}
+          {/* Home Page */}
           <Route
             path="/"
             element={
-              <div className="bg-white dark:">
+              <div className="bg-white">
                 <Hero />
-                <Brand/>
-                <Wrapper/>
-                <Featured/>
-                <Shop/>
-                <Blog/>
-                <NewsLetter/>
-                <Footer/>
+                <Brand />
+                <Wrapper />
+                <Featured />
+                <Shop />
+                <Blog />
+                <NewsLetter />
+                <Footer />
               </div>
             }
           />
-          
-          {/* Signup Route */}
+
+          {/* Signup Page */}
           <Route path="/signup" element={<Signup />} />
-          
-          {/* Login Route */}
+
+          {/* Login Page */}
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>
@@ -50,12 +55,11 @@ function Layout() {
   );
 }
 
+// Main App component
 function App() {
   return (
-    <Router>
-      <div  basename="/Spy-Games-frontend">
-        <Layout />
-      </div>
+    <Router basename="/Spy-Games-frontend">
+      <Layout />
     </Router>
   );
 }
